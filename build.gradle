@@ -18,8 +18,14 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'io.quarkus:quarkus-qute:3.8.2'
+
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+configurations {
+    all*.exclude group: 'org.jboss.slf4j' // necessary bc. it provides a SLF4J provider which conflicts with the one provided by Spring Boot (logback)
 }
 
 tasks.named('test') {
