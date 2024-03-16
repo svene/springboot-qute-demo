@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,6 +23,14 @@ public class MyController {
 		Map<String, Object> data = new HashMap<>();
 		data.put("name", "World");
 		return quteService.render("greeting", data);
+	}
+
+	@GetMapping(value = "/now", produces = "text/html")
+	@ResponseBody
+	public String now() {
+		Map<String, Object> data = new HashMap<>();
+		data.put("now", LocalDateTime.now());
+		return quteService.render("now", data);
 	}
 
 	@GetMapping("/")
