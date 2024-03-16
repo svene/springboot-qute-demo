@@ -29,7 +29,9 @@ public class MyController {
 	@ResponseBody
 	public String now() {
 		Map<String, Object> data = new HashMap<>();
-		data.put("now", LocalDateTime.now());
+		LocalDateTime now = LocalDateTime.now();
+		data.put("now", now);
+		data.put("bla", "blabla");
 		return quteService.render("now", data);
 	}
 

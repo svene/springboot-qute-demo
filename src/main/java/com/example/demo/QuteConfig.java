@@ -16,7 +16,7 @@ public class QuteConfig {
 
 	@Bean
 	public Engine quteEngine() {
-		return Engine.builder().addLocator(this::locate).build();
+		return Engine.builder().addDefaults().addLocator(this::locate).build();
 	}
 
 	private Optional<TemplateLocator.TemplateLocation> locate(String id) {

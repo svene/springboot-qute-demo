@@ -19,6 +19,8 @@ public class QuteService {
 	public String render(String templateName, Map<String, Object> data) {
 		Template template = engine.getTemplate(templateName);
 		TemplateInstance instance = template.data(data);
+//		TemplateInstance instance = template.data("bla", "blabla");
+//		TemplateInstance instance = template.data("bla", "blabla");
 		return instance.render();
 	}
 }
